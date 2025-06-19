@@ -2,35 +2,103 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>KYC Formular</title>
-  <link rel="stylesheet" href="style.css">
+  <title>KYC Dokumentenformular</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input[type="file"],
+    button {
+      margin-top: 0.5rem;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 0.75rem;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h1>KYC Dokumente hochladen</h1>
+
+  <h1>KYC Dokumente Hochladen</h1>
+
   <form id="kyc-form" enctype="multipart/form-data">
-    <label>Vorderseite Personalausweis*</label>
-    <input type="file" name="id_front" required><br>
+    <label for="id_front">Vorderseite Personalausweis *</label>
+    <input type="file" name="id_front" id="id_front" required>
 
-    <label>Rückseite Personalausweis*</label>
-    <input type="file" name="id_back" required><br>
+    <label for="id_back">Rückseite Personalausweis *</label>
+    <input type="file" name="id_back" id="id_back" required>
 
-    <label>Selfie mit Ausweis*</label>
-    <input type="file" name="selfie" required><br>
+    <label for="selfie">Selfie mit Ausweis *</label>
+    <input type="file" name="selfie" id="selfie" required>
 
-    <label>Nachweis der Mittelherkunft*</label>
-    <input type="file" name="source_of_funds" accept=".pdf,.jpg,.jpeg,.png" required><br>
+    <label for="source_of_funds">Nachweis der Mittelherkunft (Kontoauszug, PDF/JPG/PNG) *</label>
+    <input type="file" name="source_of_funds" id="source_of_funds" accept=".pdf,.jpg,.jpeg,.png" required>
 
-    <label>Führerschein (optional)</label>
-    <input type="file" name="drivers_license"><br>
+    <label for="drivers_license">Führerschein (optional)</label>
+    <input type="file" name="drivers_license" id="drivers_license">
 
-    <label>Reisepass (optional)</label>
-    <input type="file" name="passport"><br>
+    <label for="passport">Reisepass (nur Vorderseite, optional)</label>
+    <input type="file" name="passport" id="passport">
 
     <button type="submit">Absenden</button>
   </form>
 
   <div id="message"></div>
 
-  <script src="script.js"></script>
+  <script>
+    document.getElementById('kyc-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('https://your-backend-api.com/submit-kyc', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          document.getElementById('message').textContent = '✅ Dokumente erfolgreich übermittelt!';
+        } else {
+          document.getElementById('message').textContent = '❌ Fehler: ' + (data.error || 'Unbekannter Fehler');
+        }
+      } catch (error) {
+        console.error(error);
+        document.getElementById('message').textContent = '❌ Netzwerkfehler. Bitte erneut versuchen.';
+      }
+    });
+  </script>
+
 </body>
 </html>
